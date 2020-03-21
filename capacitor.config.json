@@ -1,0 +1,8 @@
+{
+  "appId": "io.ionic.starter",
+  "appName": "AbsenBozz",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "www",
+  "cordova": {}
+}
