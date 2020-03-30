@@ -33,37 +33,33 @@
   
   <ion-grid>
     <ion-row>
-      <ion-col>
+      <ion-col size="4">
         <div>Negara</div>
       </ion-col>
       <ion-col class="ion-text-center">
-        <div>Confirmed</div>
+        <div>Confirm</div>
       </ion-col>
       <ion-col class="ion-text-center">
-        <div>Recovered</div>
+        <div>Recover</div>
       </ion-col>
       <ion-col class="ion-text-center">
         <div>Deaths</div>
       </ion-col>
     </ion-row>
     
-    <!-- <ion-card> -->
-      <!-- <ion-card-content> -->
-        <ion-row *ngFor="let data of countryall">
-          <ion-col>
-            <div><span *ngIf="data.provinceState">{{data.provinceState}},</span> {{data.countryRegion}}</div>
-          </ion-col>
-          <ion-col class="ion-text-center">
-            <div>{{data.confirmed | number}}</div>
-          </ion-col>
-          <ion-col class="ion-text-center">
-            <div>{{data.recovered | number}}</div>
-          </ion-col>
-          <ion-col class="ion-text-center">
-            <div>{{data.deaths | number}}</div>
-          </ion-col>
-        </ion-row>
-      <!-- </ion-card-content> -->
-    <!-- </ion-card> -->
+    <ion-row *ngFor="let data of countryall">
+      <ion-col size="4">
+        <div><span *ngIf="data.provinceState">{{data.attributes.Country_Region}},</span> {{data.attributes.Country_Region}}</div>
+      </ion-col>
+      <ion-col class="ion-text-right">
+        <div>{{data.attributes.Confirmed | number}}</div>
+      </ion-col>
+      <ion-col class="ion-text-right">
+        <div>{{data.attributes.Recovered | number}}</div>
+      </ion-col>
+      <ion-col class="ion-text-right">
+        <div>{{data.attributes.Deaths | number}}</div>
+      </ion-col>
+    </ion-row>
   </ion-grid>
 </ion-content>

@@ -6,7 +6,10 @@ ion-row {
   padding: 0px 10px;
 }
 ion-col {
-  margin-right: 10px;
+  // margin-right: 10px;
+  background-color: #f7f7f7;
+  border: solid 1px #ddd;
+  padding: 5px;
 }
 ion-col:last-child {
   margin-right: 0px;
