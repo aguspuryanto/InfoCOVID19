@@ -21,7 +21,14 @@ export class Tab1Page {
 
     this.getRemoteData().subscribe(data => {
       // console.log("countryid", data);
-      // data['lastUpdate'] = new Date();
+      let sumConfirmed, sumRecovered, sumDeaths = 0;
+
+      Object.keys(data).forEach(function(xitem, i) {
+        sumConfirmed += data[i].attributes.Kasus_Posi;
+        sumRecovered += data[i].attributes.Kasus_Semb;
+        sumDeaths += data[i].attributes.Kasus_Meni;
+      });
+
       this.countryid = data;
     });
 
@@ -48,11 +55,13 @@ export class Tab1Page {
       // data.coords.longitude
      });
 
-    return this.http.get('https://covid19.mathdro.id/api/countries/id');
+    // return this.http.get('https://covid19.mathdro.id/api/countries/id');
+    return this.http.get('https://api.kawalcorona.com/indonesia/provinsi/');
   }
 
   public getRemoteDataAll() {
-    return this.http.get('https://covid19.mathdro.id/api/daily/2-14-2020');
+    // return this.http.get('https://covid19.mathdro.id/api/daily/2-14-2020');
+    return this.http.get('https://api.kawalcorona.com/');
   }
 
 }
