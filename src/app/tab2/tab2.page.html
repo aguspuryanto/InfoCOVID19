@@ -13,5 +13,39 @@
     </ion-toolbar>
   </ion-header>
 
-  <app-explore-container name="Tab 2 page"></app-explore-container>
+  <!-- <app-explore-container name="Tab 2 page"></app-explore-container> -->
+  
+  <ion-grid>
+    <h4 class="ion-text-center">Jumlah Kasus di Dunia</h4>
+    <p class="ion-text-center">Pembaruan Terakhir: {{lastUpdate | date: 'dd/MM/yyyy H:mm a'}}</p>
+    <ion-row class="header">
+      <ion-col size="4">
+        <div>Negara</div>
+      </ion-col>
+      <ion-col class="ion-text-center">
+        <div>Confirm</div>
+      </ion-col>
+      <ion-col class="ion-text-center">
+        <div>Recover</div>
+      </ion-col>
+      <ion-col class="ion-text-center">
+        <div>Deaths</div>
+      </ion-col>
+    </ion-row>
+    
+    <ion-row *ngFor="let data of countryall">
+      <ion-col size="4">
+        <div><span *ngIf="data.provinceState">{{data.attributes.Country_Region}},</span> {{data.attributes.Country_Region}}</div>
+      </ion-col>
+      <ion-col class="ion-text-right">
+        <div>{{data.attributes.Confirmed | number}}</div>
+      </ion-col>
+      <ion-col class="ion-text-right">
+        <div>{{data.attributes.Recovered | number}}</div>
+      </ion-col>
+      <ion-col class="ion-text-right">
+        <div>{{data.attributes.Deaths | number}}</div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

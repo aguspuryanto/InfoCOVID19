@@ -59,8 +59,7 @@ export class Tab1Page {
   }
 
   public getRemoteDataAll() {
-    // return this.http.get('https://covid19.mathdro.id/api/daily/2-14-2020');
-    return this.http.get('https://api.kawalcorona.com/');
+    return this.http.get('https://api.kawalcorona.com/indonesia/provinsi/');
   }
 
 }

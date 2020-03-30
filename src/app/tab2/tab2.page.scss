@@ -1,3 +1,18 @@
 ion-content ion-toolbar {
   --background: translucent;
 }
+
+.header ion-col {
+  background-color: #f7f7f7;
+}
+
+ion-row {
+  padding: 0px 10px;
+}
+ion-col {
+  border: solid 1px #ddd;
+  padding: 5px;
+}
+ion-col:last-child {
+  margin-right: 0px;
+}

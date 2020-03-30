@@ -12,9 +12,10 @@
   </ion-header>
 
   <!-- <app-explore-container name="Tab 1 page"></app-explore-container> -->
-  <h4 class="ion-text-center">Jumlah Kasus di Indonesia Saat Ini</h4>
   <ion-grid>
-    <ion-row *ngIf="countryid">
+    <h4 class="ion-text-center">Jumlah Kasus di Indonesia Saat Ini</h4>
+    <p class="ion-text-center">Pembaruan Terakhir: {{lastUpdate | date: 'dd/MM/yyyy H:mm a'}}</p>
+    <ion-row class="header" *ngIf="countryid">
         <ion-col style="background:#3dc2ff" class="ion-text-center">
           <h1>{{countryid['confirmed']['value']}}</h1>
           <p>POSITIF</p>
@@ -28,7 +29,6 @@
           <p>MENINGGAL</p>
         </ion-col>
     </ion-row>
-    <p class="ion-text-center">Pembaruan Terakhir: {{lastUpdate | date: 'dd/MM/yyyy H:mm a'}}</p>
   </ion-grid>
   
   <ion-grid>
@@ -49,16 +49,16 @@
     
     <ion-row *ngFor="let data of countryall">
       <ion-col size="4">
-        <div><span *ngIf="data.provinceState">{{data.attributes.Country_Region}},</span> {{data.attributes.Country_Region}}</div>
+        <div><span *ngIf="data.provinceState">{{data.attributes.Provinsi}},</span> {{data.attributes.Provinsi}}</div>
       </ion-col>
       <ion-col class="ion-text-right">
-        <div>{{data.attributes.Confirmed | number}}</div>
+        <div>{{data.attributes.Kasus_Posi | number}}</div>
       </ion-col>
       <ion-col class="ion-text-right">
-        <div>{{data.attributes.Recovered | number}}</div>
+        <div>{{data.attributes.Kasus_Semb | number}}</div>
       </ion-col>
       <ion-col class="ion-text-right">
-        <div>{{data.attributes.Deaths | number}}</div>
+        <div>{{data.attributes.Kasus_Meni | number}}</div>
       </ion-col>
     </ion-row>
   </ion-grid>
