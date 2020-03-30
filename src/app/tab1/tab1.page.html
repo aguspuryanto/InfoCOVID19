@@ -17,18 +17,18 @@
     <ion-row *ngIf="countryid">
         <ion-col style="background:#3dc2ff" class="ion-text-center">
           <h1>{{countryid['confirmed']['value']}}</h1>
-          <p>Confirmed</p>
+          <p>POSITIF</p>
         </ion-col>
         <ion-col style="background:#2dd36f" class="ion-text-center">
           <h1>{{countryid['recovered']['value']}}</h1>
-          <p>Recovered</p>
+          <p>SEMBUH</p>
         </ion-col>
         <ion-col style="background:#eb445a" class="ion-text-center">
           <h1>{{countryid['deaths']['value']}}</h1>
-          <p>Deaths</p>
+          <p>MENINGGAL</p>
         </ion-col>
     </ion-row>
-    <p>Pembaruan Terakhir: {{countryid['lastUpdate'] | date: 'short'}}</p>
+    <p class="ion-text-center">Pembaruan Terakhir: {{lastUpdate | date: 'dd/MM/yyyy H:mm a'}}</p>
   </ion-grid>
   
   <ion-grid>

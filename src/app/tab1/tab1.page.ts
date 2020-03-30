@@ -14,11 +14,14 @@ import { HttpClient } from '@angular/common/http';
 })
 export class Tab1Page {
   countryall: any;
-  countryid: any;  
-  constructor(public http: HttpClient) {
+  countryid: any;
+  lastUpdate: any = new Date();
+
+  constructor(private geolocation: Geolocation, public http: HttpClient) {
 
     this.getRemoteData().subscribe(data => {
-      console.log("countryid", data);
+      // console.log("countryid", data);
+      // data['lastUpdate'] = new Date();
       this.countryid = data;
     });
 
@@ -29,6 +32,22 @@ export class Tab1Page {
   }
 
   public getRemoteData() {
+    this.geolocation.getCurrentPosition().then((resp) => {
+      // console.log("getCurrentPosition", resp);
+      // resp.coords.latitude
+      // resp.coords.longitude
+     }).catch((error) => {
+       console.log('Error getting location', error);
+     });
+     
+     let watch = this.geolocation.watchPosition();
+     watch.subscribe((data) => {
+       console.log("watchPosition", data);
+      // data can be a set of coordinates, or an error (if an error occurred).
+      // data.coords.latitude
+      // data.coords.longitude
+     });
+
     return this.http.get('https://covid19.mathdro.id/api/countries/id');
   }
 
